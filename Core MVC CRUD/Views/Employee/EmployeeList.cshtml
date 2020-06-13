@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Employee>
+
+@{
+    ViewBag.Title = "Employee Details..";
+
+}
+
+<div class="container">
+    <div class="table-wrapper">
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-8"><h2>@ViewBag.Title</h2></div>
+                <div class="col-sm-4">
+                    <a asp-action="EmployeeCreate" asp-controller="Employee" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</a>
+                </div>
+            </div>
+        </div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Department</th>
+                    <th>Salary</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var Employee in Model)
+                { 
+                <tr>
+                    <td>@Employee.Name</td>
+                    <td>@Employee.Department</td>
+                    <td>@Employee.Salary</td>
+                    <td>
+                        <a asp-action="EmployeeEdit" asp-controller="Employee" asp-route-id="@Employee.id"> Edit
+                            <span class="glyphicon glyphicon-pencil"></span> 
+                        </a>
+                    </td>
+                    <td>
+                        <a asp-action="Delete" asp-controller="Employee" asp-route-id="@Employee.id" >
+                            Delete
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </a>
+                    </td>
+                </tr>
+                }
+                    
+                     
+                </tbody>
+        </table>
+    </div>
+</div>
+

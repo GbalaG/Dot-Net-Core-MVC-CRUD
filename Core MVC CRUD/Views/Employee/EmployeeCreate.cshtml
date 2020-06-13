@@ -1,0 +1,45 @@
+﻿@model EmployeeCreateViewModel;
+
+@{ 
+    ViewBag.Title = "Employee Creation";
+}
+
+    <form enctype="multipart/form-data" asp-controller="Employee" asp-action="EmployeeCreate" method="post">
+
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-8"><h2>@ViewBag.Title</h2></div>
+            </div>
+        </div>
+
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <div class="form-group row">
+            <label asp-for="Name" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="Name" class="form-control" placeholder="Name" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Department" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="Department" class="form-control" placeholder="Department" />
+                <span asp-validation-for="Department" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Salary" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="Salary" class="form-control" placeholder="Salary" />
+                <span asp-validation-for="Salary" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-10">
+                <button type="submit" class="btn btn-primary">Create</button>
+                <a asp-action="EmployeeList" asp-controller="Employee" class="btn btn-primary">Cancel</a>
+            </div>
+
+        </div>
+    </form>
